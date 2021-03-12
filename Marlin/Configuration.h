@@ -395,6 +395,11 @@
   #define Z_STOP_PIN 19
 #endif
 
+// Change Z_MIN_PIN to match the Creality mainboard for TouchMi probe
+#if ALL(MachineCR10SPro, ABL_TOUCH_MI)
+  #define Z_MIN_PIN 12
+#endif
+
 #if ANY(MachineEnder2, MachineEnder3, MachineEnder5, MachineCR10, MachineMini) && NONE(Melzi_To_SBoardUpgrade, SKR13, SKRPRO11, SKRMiniE3V2)
   #define MachineCR10Orig
 #endif
@@ -1424,7 +1429,7 @@
 #elif ANY(EZRstruder, MachineCR10SV2)
   #define EStepsmm 93
 #elif ANY(MachineCR10SPro, MachineCR10Max, MachineCRXPro)
-  #define EStepsmm 140
+  #define EStepsmm 135.6
 #elif ENABLED(MachineCR2020)
   #define EStepsmm 113
 #else
@@ -1745,7 +1750,7 @@
      #define NOZZLE_TO_PROBE_OFFSET { -44, -10, 0 }
    #endif
 #elif ANY(MachineCR10SPro, MachineCR10Max) && ENABLED(HotendStock) && DISABLED(MicroswissDirectDrive)
-  #define NOZZLE_TO_PROBE_OFFSET { -27, 0, 0 }
+  #define NOZZLE_TO_PROBE_OFFSET { -27, 5, 0 }
 #elif (ANY(ABL_BLTOUCH, ABL_EZABL,ABL_NCSW) && ENABLED(E3DHemera))
     #define NOZZLE_TO_PROBE_OFFSET { -40, 0, 0 }
 #elif ENABLED(MachineCR10SV2)
